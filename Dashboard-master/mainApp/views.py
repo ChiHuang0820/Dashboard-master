@@ -18,6 +18,11 @@ def order(request):
     db = sqlite3.connect('mainApp.db')
     cursor = db.cursor()
 
+    ### Create Table
+    # sql_create = "CREATE TABLE return(logistic_id INT PRIMARY KEY NOT NULL, return_time CHAR(10), order_product_id INT)"
+    # cursor.execute(sql_create)
+
+
     ###Show 訂單列表
     sql = "SELECT * FROM order_list"
     cursor.execute(sql)
@@ -60,6 +65,11 @@ def order(request):
                 
             elif response == '已到達':
                 replysql = "UPDATE order_list SET status = '已到達'"
+                cursor.execute(replysql)
+                db.commit()
+            
+            elif response == '退貨':
+                replysql = "UPDATE order_list SET status = '退貨'"
                 cursor.execute(replysql)
                 db.commit()
             

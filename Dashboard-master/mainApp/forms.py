@@ -10,6 +10,7 @@ class FormStatus(forms.Form):
        ('已達包裹中心', '已達包裹中心'),
        ('已達物流中心', '已達物流中心'),
        ('已出貨', '已出貨'),
-       ('已到達', '已到達')
+       ('已到達', '已到達'),
+       ('退貨', '退貨')
     )
     response = forms.CharField(label="response",widget=forms.widgets.Select(choices=SELVALUE),initial=SELVALUE[0])
